@@ -1,0 +1,2 @@
+Locust==2.15.1
+requests==2.28.1

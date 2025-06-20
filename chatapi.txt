@@ -1,0 +1,159 @@
+
+============================
+📘 Chat API Routes & Examples
+============================
+
+✅ PUBLIC ROUTES (No JWT Required)
+----------------------------------
+
+1. GET /
+---------
+Description: Welcome message
+Example:
+    GET http://localhost:3000/
+
+---
+
+2. POST /auth/signup
+---------------------
+Description: Create new user
+Example:
+    POST http://localhost:3000/auth/signup
+    Body (JSON):
+    {
+        "email": "user@example.com",
+        "password": "123456"
+    }
+
+---
+
+3. POST /auth/signin
+---------------------
+Description: Authenticate user
+Example:
+    POST http://localhost:3000/auth/signin
+    Body (JSON):
+    {
+        "email": "user@example.com",
+        "password": "123456"
+    }
+
+=============================
+
+🔒 PROTECTED ROUTES (JWT Required)
+----------------------------------
+**Add header: Authorization: Bearer your_jwt_token_here**
+
+📂 USERS
+--------
+
+4. GET /api/users/
+-------------------
+Description: Get all users
+Example:
+    GET http://localhost:3000/api/users/
+
+---
+
+5. GET /api/users/:id
+----------------------
+Description: Get user by ID
+Example:
+    GET http://localhost:3000/api/users/123
+
+---
+
+6. POST /api/users/create
+--------------------------
+Description: Create new user (admin only)
+Example:
+    POST http://localhost:3000/api/users/create
+    Body (JSON):
+    {
+        "email": "newuser@example.com",
+        "password": "123456"
+    }
+
+---
+
+7. PUT /api/users/:id
+----------------------
+Description: Update user by ID
+Example:
+    PUT http://localhost:3000/api/users/123
+    Body (JSON):
+    {
+        "email": "updated@example.com",
+        "password": "654321",
+        "role": "admin"
+    }
+
+---
+
+8. DELETE /api/users/:id
+-------------------------
+Description: Delete user by ID (admin only)
+Example:
+    DELETE http://localhost:3000/api/users/123
+
+=======================
+
+💬 CHATS
+---------
+
+9. GET /api/chats/
+-------------------
+Description: Get all chats
+Example:
+    GET http://localhost:3000/api/chats/
+
+---
+
+10. GET /api/chats/getByChatID/:id
+-----------------------------------
+Description: Get chat by chat ID
+Example:
+    GET http://localhost:3000/api/chats/getByChatID/456
+
+---
+
+11. POST /api/chats/
+---------------------
+Description: Create a new chat
+Example:
+    POST http://localhost:3000/api/chats/
+    Body (JSON):
+    {
+        "message": "Hello world!",
+        "receiver_id": "789"
+    }
+
+---
+
+12. PUT /api/chats/:id
+-----------------------
+Description: Update a chat by ID
+Example:
+    PUT http://localhost:3000/api/chats/456
+    Body (JSON):
+    {
+        "message": "Updated message"
+    }
+
+---
+
+13. DELETE /api/chats/:id
+--------------------------
+Description: Delete a chat by ID
+Example:
+    DELETE http://localhost:3000/api/chats/456
+
+---
+
+14. GET /api/chats/all_chat_id
+-------------------------------
+Description: Get all chat IDs for a user
+Example:
+    GET http://localhost:3000/api/chats/all_chat_id
+
+===========================
